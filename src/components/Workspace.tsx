@@ -6,8 +6,6 @@ import { ChangeEvent, InvalidEvent, useState } from 'react';
 export function Workspace() {
   const [newTaskText, setNewTaskText] = useState('');
 
-  console.log(newTaskText)
-
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
     event.target.setCustomValidity('');
     setNewTaskText(event.target.value)
@@ -16,6 +14,8 @@ export function Workspace() {
   function handleNewTaskInvalid(event: InvalidEvent<HTMLInputElement>){
     event.target.setCustomValidity("Esse campo é obrigatório!")
   }
+
+  const isNewTaskEmpty = newTaskText.length === 0;
 
   return (
     <div className={styles.wrapper}>
@@ -29,7 +29,7 @@ export function Workspace() {
           required
         />
 
-        <button type='submit'>
+        <button type='submit' disabled={isNewTaskEmpty}>
           Criar <PlusCircle fontSize={16}/>
         </button>
       </form>
