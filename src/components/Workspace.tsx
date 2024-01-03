@@ -1,10 +1,23 @@
 import { PlusCircle } from '@phosphor-icons/react';
 
 import styles from './Workspace.module.css';
-import { ChangeEvent, InvalidEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
+
+interface TasksProps { 
+  content: string;
+  date: Date;
+  completed: boolean;
+}
 
 export function Workspace() {
   const [newTaskText, setNewTaskText] = useState('');
+  const [tasks, setTasks] = useState<TasksProps[]>([
+    {
+      content: 'Maravilha!!',
+      date: new Date('2023-12-28 00:20'),
+      completed: false
+    }
+  ]);
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
     event.target.setCustomValidity('');
@@ -15,11 +28,26 @@ export function Workspace() {
     event.target.setCustomValidity("Esse campo é obrigatório!")
   }
 
+  function handleCreateNewTask(event: FormEvent) {    
+    event.preventDefault();
+
+    const newObjectTask = {
+      content: newTaskText,
+      date: new Date(),
+      completed: false
+    }
+    
+    setTasks([
+      ...tasks,
+      newObjectTask]);
+    setNewTaskText('');
+  }
+
   const isNewTaskEmpty = newTaskText.length === 0;
 
   return (
     <div className={styles.wrapper}>
-      <form className={styles.newTask}>
+      <form onSubmit={handleCreateNewTask} className={styles.newTask}>
         <input 
           type="text" 
           onChange={handleNewTaskChange}
