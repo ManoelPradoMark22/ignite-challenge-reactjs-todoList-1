@@ -12,17 +12,21 @@ export function DashboardTasks({ tasks }: DashboardTasksProps) {
 
   const isArrayTasksEmpty = tasks.length === 0;
 
+  const countCompletedTasks = tasks.reduce((acumulator, value) => 
+    value.completed ? acumulator+=1 : acumulator
+  , 0);
+
   return (
     <div className={styles.dashboardTasks}>
       <header className={styles.headerCouting}>
         <div>
           <span className={styles.createdTasks}>Tarefas criadas</span>
-          <span className={styles.coutingTasks}>0</span>
+          <span className={styles.coutingTasks}>{tasks.length}</span>
         </div>
 
         <div>
           <span className={styles.completedTasks}>Concluídas</span>
-          <span className={styles.coutingTasks}>0</span>
+          <span className={styles.coutingTasks}>{countCompletedTasks}</span>
         </div>
       </header>
 

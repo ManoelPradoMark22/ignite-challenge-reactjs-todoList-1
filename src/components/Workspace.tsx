@@ -15,6 +15,11 @@ export function Workspace() {
     // {
     //   content: 'Essa é a sua primeira Task!',
     //   date: new Date('2023-12-28 00:20'),
+    //   completed: true
+    // },
+    // {
+    //   content: 'Essa é a sua primeira Task!',
+    //   date: new Date('2023-12-28 00:20'),
     //   completed: false
     // }
   ]);
