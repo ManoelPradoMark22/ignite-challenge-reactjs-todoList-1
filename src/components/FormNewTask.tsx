@@ -10,8 +10,6 @@ interface FormNewTaskProps {
 export function FormNewTask({ onCreateTask }: FormNewTaskProps) {
   const [newTaskText, setNewTaskText] = useState('');
 
-  console.log(`2 - FORMNEWTASK | ${newTaskText}`)
-
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
     event.target.setCustomValidity('');
     setNewTaskText(event.target.value)

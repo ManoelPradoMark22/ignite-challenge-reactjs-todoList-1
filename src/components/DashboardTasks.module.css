@@ -1,0 +1,47 @@
+.dashboardTasks {
+  margin-top: 4rem;
+}
+
+.divCouting {
+  
+}
+
+.containerTasksList {
+  
+}
+
+
+.containerTasksListEmpty {
+  
+}
+
+.divEmptyBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 8px;
+  border-top: 1px solid var(--gray-400);
+  color: var(--gray-300);
+  font-size: 1rem;
+
+  padding: 4rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.divEmptyBox img {
+  height: 3.5rem;
+  user-select: none;
+  margin-bottom: 1rem;
+}
+
+.divEmptyBox p {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+}
+
+.divEmptyBox span {
+  font-weight: bold;
+}

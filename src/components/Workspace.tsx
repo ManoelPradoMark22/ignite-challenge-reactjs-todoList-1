@@ -1,3 +1,4 @@
+import { DashboardTasks } from './DashboardTasks';
 import { FormNewTask } from './FormNewTask';
 
 import styles from './Workspace.module.css';
@@ -11,15 +12,12 @@ export interface TasksProps {
 
 export function Workspace() {
   const [tasks, setTasks] = useState<TasksProps[]>([
-    {
-      content: 'Maravilha!!',
-      date: new Date('2023-12-28 00:20'),
-      completed: false
-    }
+    // {
+    //   content: 'Essa é a sua primeira Task!',
+    //   date: new Date('2023-12-28 00:20'),
+    //   completed: false
+    // }
   ]);
-
-  console.log('1 - WORKSPACE');
-  console.log(tasks);
 
   function createTask(newObjectTask:TasksProps) {
     setTasks((tasks) => [
@@ -29,9 +27,8 @@ export function Workspace() {
 
   return (
     <div className={styles.wrapper}>
-      <FormNewTask
-        onCreateTask={createTask}
-      />
+      <FormNewTask onCreateTask={createTask} />
+      <DashboardTasks tasks={tasks}/>
     </div>
   )
 }
