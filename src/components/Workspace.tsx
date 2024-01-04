@@ -1,16 +1,15 @@
-import { PlusCircle } from '@phosphor-icons/react';
+import { FormNewTask } from './FormNewTask';
 
 import styles from './Workspace.module.css';
-import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
+import { useState } from 'react';
 
-interface TasksProps { 
+export interface TasksProps { 
   content: string;
   date: Date;
   completed: boolean;
 }
 
 export function Workspace() {
-  const [newTaskText, setNewTaskText] = useState('');
   const [tasks, setTasks] = useState<TasksProps[]>([
     {
       content: 'Maravilha!!',
@@ -19,48 +18,20 @@ export function Workspace() {
     }
   ]);
 
-  function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
-    event.target.setCustomValidity('');
-    setNewTaskText(event.target.value)
-  }
+  console.log('1 - WORKSPACE');
+  console.log(tasks);
 
-  function handleNewTaskInvalid(event: InvalidEvent<HTMLInputElement>){
-    event.target.setCustomValidity("Esse campo é obrigatório!")
-  }
-
-  function handleCreateNewTask(event: FormEvent) {    
-    event.preventDefault();
-
-    const newObjectTask = {
-      content: newTaskText,
-      date: new Date(),
-      completed: false
-    }
-    
-    setTasks([
+  function createTask(newObjectTask:TasksProps) {
+    setTasks((tasks) => [
       ...tasks,
       newObjectTask]);
-    setNewTaskText('');
   }
-
-  const isNewTaskEmpty = newTaskText.length === 0;
 
   return (
     <div className={styles.wrapper}>
-      <form onSubmit={handleCreateNewTask} className={styles.newTask}>
-        <input 
-          type="text" 
-          onChange={handleNewTaskChange}
-          value={newTaskText}
-          onInvalid={handleNewTaskInvalid}
-          placeholder='Adicione uma nova tarefa'
-          required
-        />
-
-        <button type='submit' disabled={isNewTaskEmpty}>
-          Criar <PlusCircle fontSize={16}/>
-        </button>
-      </form>
+      <FormNewTask
+        onCreateTask={createTask}
+      />
     </div>
   )
 }
