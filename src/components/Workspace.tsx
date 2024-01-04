@@ -12,16 +12,16 @@ export interface TasksProps {
 
 export function Workspace() {
   const [tasks, setTasks] = useState<TasksProps[]>([
-    // {
-    //   content: 'Essa é a sua primeira Task!',
-    //   date: new Date('2023-12-28 00:20'),
-    //   completed: true
-    // },
-    // {
-    //   content: 'Essa é a sua primeira Task!',
-    //   date: new Date('2023-12-28 00:20'),
-    //   completed: false
-    // }
+    {
+      content: 'Essa é a sua primeira Task!',
+      date: new Date('2023-12-28 00:20'),
+      completed: true
+    },
+    {
+      content: 'Essa é a sua primeira Task!',
+      date: new Date('2023-12-28 00:20'),
+      completed: false
+    }
   ]);
 
   function createTask(newObjectTask:TasksProps) {

@@ -3,6 +3,7 @@ import styles from './DashboardTasks.module.css';
 import { TasksProps } from './Workspace';
 
 import emptyIcon from '../assets/emptyIcon.svg'
+import { Task } from './Task';
 
 interface DashboardTasksProps {
   tasks: TasksProps[]
@@ -43,7 +44,11 @@ export function DashboardTasks({ tasks }: DashboardTasksProps) {
           </div>
           :
           <div className={styles.divTasksList}>
-
+            {tasks.map(task => {
+              return (
+                <Task key={task.date.toISOString()} task={task}/>
+              )
+            })}
           </div>
         }
       </div>
