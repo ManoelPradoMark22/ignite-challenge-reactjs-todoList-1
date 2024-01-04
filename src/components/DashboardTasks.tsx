@@ -14,8 +14,16 @@ export function DashboardTasks({ tasks }: DashboardTasksProps) {
 
   return (
     <div className={styles.dashboardTasks}>
-      <header className={styles.divCouting}>
+      <header className={styles.headerCouting}>
+        <div>
+          <span className={styles.createdTasks}>Tarefas criadas</span>
+          <span className={styles.coutingTasks}>0</span>
+        </div>
 
+        <div>
+          <span className={styles.completedTasks}>Concluídas</span>
+          <span className={styles.coutingTasks}>0</span>
+        </div>
       </header>
 
       <div 
