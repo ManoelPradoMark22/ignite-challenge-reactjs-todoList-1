@@ -1,5 +1,5 @@
 {
-  "homepage": "http://manoelpradomark22.github.io/ignite-challenge-reactjs-todoList-1",
+  "homepage": "https://manoelpradomark22.github.io/ignite-challenge-reactjs-todoList-1",
   "name": "ignite-challenge-reactjs-todolist-1",
   "private": true,
   "version": "0.0.0",
@@ -10,7 +10,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d dist -r https://github.com/ManoelPradoMark22/ignite-challenge-reactjs-todoList-1.git"
+    "deploy" : "gh-pages -d dist"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.0.15",
