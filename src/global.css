@@ -1,6 +1,7 @@
 :root {
-  --blue: #4EA8DE;
+  --blue: #4ea8de;
   --blue-dark: #1E6F9F;
+  --blue-light: #4ea8de33; 
 
   --purple: #8284FA;
   --purple-dark: #5E60CE;
@@ -14,11 +15,6 @@
   --gray-700: #0D0D0D;
 
   --danger: #E25858;
-}
-
-:focus {
-  outline: transparent;
-  box-shadow: 0 0 0 2px var(--purple-dark);
 }
 
 * {

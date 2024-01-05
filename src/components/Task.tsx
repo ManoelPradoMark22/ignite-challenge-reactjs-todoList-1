@@ -12,8 +12,8 @@ interface TaskProps {
 export function Task({ task }: TaskProps) {
   return (
     <div className={styles.task}>
-      <input type="checkbox" />
-      <span>{task.content}</span>
+      <input type="checkbox"/>
+      <span className={task.completed ? styles.textTaskCompled : styles.textTask}>{task.content}</span>
       <Trash size={14}/>
     </div>
   )
