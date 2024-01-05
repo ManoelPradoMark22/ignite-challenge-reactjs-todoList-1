@@ -1,4 +1,4 @@
-import { Trash } from '@phosphor-icons/react';
+import { Trash, Check } from '@phosphor-icons/react';
 
 import { TasksProps } from './Workspace';
 
@@ -12,9 +12,9 @@ interface TaskProps {
 export function Task({ task }: TaskProps) {
   return (
     <div className={styles.task}>
-      <input type="checkbox"/>
+      <label><input type="checkbox"/><span className={styles.label}>{task.completed ? <Check/> : '' }</span></label>
       <span className={task.completed ? styles.textTaskCompled : styles.textTask}>{task.content}</span>
-      <Trash size={14}/>
+      <Trash className={styles.deleteTask} size={14}/>
     </div>
   )
 }

@@ -21,19 +21,19 @@
   flex: 1;
 }
 
-.task svg {
+.task .deleteTask {
   cursor: pointer;
   color: var(--gray-300);
 }
 
-.task svg:hover {
+.task .deleteTask:hover {
   color: var(--danger);
   background-color: var(--gray-400);
   border-radius: 4px;
   padding: 0.0275rem 0.0275rem;
 }
 
-.task input[type=checkbox] {
+/* .task input[type=checkbox] {
   cursor: pointer;
   color: var(--gray-300);
   appearance: none;
@@ -46,4 +46,36 @@
 .task input[type=checkbox]:hover {
   background: var(--blue-light);
   border: 0.15em solid var(--blue-dark);
+} */
+
+.task input[type=checkbox] {
+  display: none;
+}
+
+.task .label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--gray-100);
+  border: 0.15em solid var(--blue);
+  width: 1.090625rem;
+  height: 1.090625rem;
+  border-radius: 50%;
+  /* background: url("unchecked.png") no-repeat left center; */ 
+  /* padding-left: 15px; */
+}
+
+.task .label:hover {
+  background: var(--blue-light);
+  border: 0.15em solid var(--blue-dark);
+}
+
+.task input[type=checkbox]:checked + .label {
+  border: none;
+  background: var(--purple-dark);
+}
+
+.task input[type=checkbox]:checked:hover + .label {
+  background: var(--purple);
 }
