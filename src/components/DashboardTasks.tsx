@@ -5,9 +5,11 @@ import { TasksProps } from './Workspace';
 import emptyIcon from '../assets/emptyIcon.svg'
 import { Task } from './Task';
 
-interface DashboardTasksProps {
-  tasks: TasksProps[],
+interface CommonTasksProps {
   onToggleTask: (id:Date) => void
+}
+interface DashboardTasksProps extends CommonTasksProps{
+  tasks: TasksProps[]
 }
 
 export function DashboardTasks({ tasks, onToggleTask }: DashboardTasksProps) {

@@ -1,12 +1,12 @@
 import { Trash, Check } from '@phosphor-icons/react';
 
 import { TasksProps } from './Workspace';
+import { CommonTasksProps } from './DashboardTasks';
 
 import styles from './Task.module.css';
 
-interface TaskProps {
-  task: TasksProps,
-  onToggleTask: (id:Date) => void
+interface TaskProps extends CommonTasksProps{
+  task: TasksProps
 }
 
 export function Task({ task, onToggleTask }: TaskProps) {
