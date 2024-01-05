@@ -43,10 +43,20 @@ export function Workspace() {
     setTasks(newTasks);
   }
 
+  function deleteTask(id:Date) {
+    const newTasks = tasks.filter(task => task.date !== id);
+
+    setTasks(newTasks);
+  }
+
   return (
     <div className={styles.wrapper}>
       <FormNewTask onCreateTask={createTask} />
-      <DashboardTasks onToggleTask={toggleTask} tasks={tasks}/>
+      <DashboardTasks 
+        tasks={tasks}
+        onToggleTask={toggleTask}
+        onDeleteTask={deleteTask}
+      />
     </div>
   )
 }

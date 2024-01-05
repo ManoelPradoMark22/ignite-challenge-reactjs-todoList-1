@@ -5,14 +5,16 @@ import { TasksProps } from './Workspace';
 import emptyIcon from '../assets/emptyIcon.svg'
 import { Task } from './Task';
 
-interface CommonTasksProps {
-  onToggleTask: (id:Date) => void
+export interface CommonTasksProps {
+  onToggleTask: (id:Date) => void,
+  onDeleteTask: (id:Date) => void
 }
 interface DashboardTasksProps extends CommonTasksProps{
   tasks: TasksProps[]
 }
 
-export function DashboardTasks({ tasks, onToggleTask }: DashboardTasksProps) {
+export function DashboardTasks(
+  { tasks, onToggleTask, onDeleteTask }: DashboardTasksProps) {
 
   const isArrayTasksEmpty = tasks.length === 0;
 
@@ -53,6 +55,7 @@ export function DashboardTasks({ tasks, onToggleTask }: DashboardTasksProps) {
                   key={task.date.toISOString()}
                   task={task}
                   onToggleTask={onToggleTask}
+                  onDeleteTask={onDeleteTask}
                 />
               )
             })}
