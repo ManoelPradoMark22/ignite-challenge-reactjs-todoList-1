@@ -12,12 +12,21 @@ export interface TasksProps {
 }
 
 export function Workspace() {
-  const [tasks, setTasks] = useState<TasksProps[]>([]);
+  const LS_KEY = "todo-rocket"
+  const storageTasks = localStorage.getItem(LS_KEY) || JSON.stringify([]);
+
+  const [tasks, setTasks] = useState<TasksProps[]>(JSON.parse(storageTasks));
 
   function createTask(newObjectTask:TasksProps) {
-    setTasks((tasks) => [
-      ...tasks,
-      newObjectTask]);
+    setTasks((tasks) => {
+      const newTasks = [
+        ...tasks,
+        newObjectTask
+      ];
+      localStorage.setItem(LS_KEY, JSON.stringify(newTasks));
+
+      return newTasks
+    });
   }
 
   function toggleTask(id:string) {
@@ -30,12 +39,14 @@ export function Workspace() {
       return task
     })
 
+    localStorage.setItem(LS_KEY, JSON.stringify(newTasks))
     setTasks(newTasks);
   }
 
   function deleteTask(id:string) {
     const newTasks = tasks.filter(task => task.id !== id);
 
+    localStorage.setItem(LS_KEY, JSON.stringify(newTasks));
     setTasks(newTasks);
   }
 

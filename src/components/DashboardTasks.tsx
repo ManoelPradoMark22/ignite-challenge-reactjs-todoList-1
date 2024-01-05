@@ -52,7 +52,7 @@ export function DashboardTasks(
             {tasks.map(task => {
               return (
                 <Task 
-                  key={task.date.toISOString()}
+                  key={task.id}
                   task={task}
                   onToggleTask={onToggleTask}
                   onDeleteTask={onDeleteTask}
