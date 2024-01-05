@@ -30,10 +30,23 @@ export function Workspace() {
       newObjectTask]);
   }
 
+  function toggleTask(id:Date) {
+    const newTasks = [...tasks];
+
+    newTasks.map(task => {
+      if(task.date === id) {
+        task.completed = !task.completed
+      }
+      return task
+    })
+
+    setTasks(newTasks);
+  }
+
   return (
     <div className={styles.wrapper}>
       <FormNewTask onCreateTask={createTask} />
-      <DashboardTasks tasks={tasks}/>
+      <DashboardTasks onToggleTask={toggleTask} tasks={tasks}/>
     </div>
   )
 }

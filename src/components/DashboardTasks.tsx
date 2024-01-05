@@ -6,10 +6,11 @@ import emptyIcon from '../assets/emptyIcon.svg'
 import { Task } from './Task';
 
 interface DashboardTasksProps {
-  tasks: TasksProps[]
+  tasks: TasksProps[],
+  onToggleTask: (id:Date) => void
 }
 
-export function DashboardTasks({ tasks }: DashboardTasksProps) {
+export function DashboardTasks({ tasks, onToggleTask }: DashboardTasksProps) {
 
   const isArrayTasksEmpty = tasks.length === 0;
 
@@ -46,7 +47,11 @@ export function DashboardTasks({ tasks }: DashboardTasksProps) {
           <div className={styles.divTasksList}>
             {tasks.map(task => {
               return (
-                <Task key={task.date.toISOString()} task={task}/>
+                <Task 
+                  key={task.date.toISOString()}
+                  task={task}
+                  onToggleTask={onToggleTask}
+                />
               )
             })}
           </div>
