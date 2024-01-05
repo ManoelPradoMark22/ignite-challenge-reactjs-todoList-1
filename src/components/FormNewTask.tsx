@@ -1,4 +1,5 @@
 import { PlusCircle } from '@phosphor-icons/react';
+import { v4 as uuidv4 } from 'uuid';
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
 import styles from './FormNewTask.module.css';
 import { TasksProps } from './Workspace';
@@ -23,6 +24,7 @@ export function FormNewTask({ onCreateTask }: FormNewTaskProps) {
     event.preventDefault();
 
     const newObjectTask:TasksProps = {
+      id: uuidv4(),
       content: newTaskText,
       date: new Date(),
       completed: false

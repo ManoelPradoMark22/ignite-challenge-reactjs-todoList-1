@@ -6,8 +6,8 @@ import emptyIcon from '../assets/emptyIcon.svg'
 import { Task } from './Task';
 
 export interface CommonTasksProps {
-  onToggleTask: (id:Date) => void,
-  onDeleteTask: (id:Date) => void
+  onToggleTask: (id:string) => void,
+  onDeleteTask: (id:string) => void
 }
 interface DashboardTasksProps extends CommonTasksProps{
   tasks: TasksProps[]

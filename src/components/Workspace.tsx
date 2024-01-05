@@ -5,24 +5,14 @@ import styles from './Workspace.module.css';
 import { useState } from 'react';
 
 export interface TasksProps { 
+  id: string,
   content: string;
   date: Date;
   completed: boolean;
 }
 
 export function Workspace() {
-  const [tasks, setTasks] = useState<TasksProps[]>([
-    {
-      content: 'Essa é a sua primeira Task! ola ola teste',
-      date: new Date('2023-12-28 00:20'),
-      completed: false
-    },
-    {
-      content: 'Essa é a sua segunda Task!',
-      date: new Date('2023-12-28 13:05'),
-      completed: true
-    }
-  ]);
+  const [tasks, setTasks] = useState<TasksProps[]>([]);
 
   function createTask(newObjectTask:TasksProps) {
     setTasks((tasks) => [
@@ -30,11 +20,11 @@ export function Workspace() {
       newObjectTask]);
   }
 
-  function toggleTask(id:Date) {
+  function toggleTask(id:string) {
     const newTasks = [...tasks];
 
     newTasks.map(task => {
-      if(task.date === id) {
+      if(task.id === id) {
         task.completed = !task.completed
       }
       return task
@@ -43,8 +33,8 @@ export function Workspace() {
     setTasks(newTasks);
   }
 
-  function deleteTask(id:Date) {
-    const newTasks = tasks.filter(task => task.date !== id);
+  function deleteTask(id:string) {
+    const newTasks = tasks.filter(task => task.id !== id);
 
     setTasks(newTasks);
   }

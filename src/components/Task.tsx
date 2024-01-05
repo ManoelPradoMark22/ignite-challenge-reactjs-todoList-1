@@ -10,10 +10,10 @@ interface TaskProps extends CommonTasksProps{
 }
 
 export function Task({ task, onToggleTask, onDeleteTask }: TaskProps) {
-  const { completed, content, date } = task;
+  const { id, completed, content } = task;
 
   function handleToggleTask() {
-    onToggleTask(date);
+    onToggleTask(id);
   }
 
   return (
@@ -23,7 +23,7 @@ export function Task({ task, onToggleTask, onDeleteTask }: TaskProps) {
         <span className={styles.label}>{completed ? <Check/> : '' }</span>
       </label>
       <span className={completed ? styles.textTaskCompled : styles.textTask}>{content}</span>
-      <Trash className={styles.deleteTask} size={14} onClick={() => onDeleteTask(date)}/>
+      <Trash className={styles.deleteTask} size={14} onClick={() => onDeleteTask(id)}/>
     </div>
   )
 }
